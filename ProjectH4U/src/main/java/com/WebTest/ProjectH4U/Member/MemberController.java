@@ -6,25 +6,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-//@RequestMapping(path = "api/member")
+@RequestMapping(path = "api/member")
 public class MemberController {
 
     //MemberService memberService = new MemberService();
-//    private MemberService memberService;
-//
-//    @Autowired
-//    public MemberController(MemberService memberService) {
-//        this.memberService = memberService;
-//    }
-//
-//    @GetMapping
-//    public Member getMember(){
-//        return memberService.getMember();
-//    }
+    private MemberService memberService;
 
-    @RequestMapping(path = "/add")
-    public String add(){
-        System.out.println("Hello.....");
-        return "";
+    @Autowired
+    public MemberController(MemberService memberService) {
+        this.memberService = memberService;
     }
+
+    @GetMapping
+    public Member getMember(){
+        return memberService.getMember();
+    }
+
+//    @RequestMapping(path = "/add")
+//    public String add(){
+//        System.out.println("Hello.....");
+//        return "";
+//    }
 }
